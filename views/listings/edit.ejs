@@ -1,0 +1,66 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row mt-3">
+        <div class="col-12 col-md-8 offset-md-2 offset-1 edit-container">
+    <h2>Edit your listing:</h2>
+    <form method="post" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input value="<%=listing.title%>" name="listing[title]" type="text" class="form-control" required>
+            <div class="invalid-feedback">Please enter a valid title!</div>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea name="listing[description]" rows="6" cols="28" type="text" 
+            class="form-control" required><%=listing.description%></textarea>    
+            <div class="invalid-feedback">Please enter short description!</div>
+        </div>
+        <div class="mb-3">
+            <img src="<%=ogImage%>" class="edit-image">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload New Image:</label>
+            <input name="listing[image]" type="file" class="form-control">
+        </div>
+        <div class="row">
+        <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price:</label>
+            <input value="<%=listing.price%>" name="listing[price]" type="number" class="form-control" required>
+            <div class="invalid-feedback">Please enter valid price!</div>
+        </div>
+        <div class="mb-3 col-md-8" >
+            <label for="country" class="form-label">Country:</label>
+            <input value="<%=listing.country%>" name="listing[country]" type="text" class="form-control" required>
+            <div class="invalid-feedback">Please enter a country name!</div>
+        </div>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location:</label>
+            <input value="<%=listing.location%>" name="listing[location]" type="text" class="form-control" required>
+            <div class="invalid-feedback">Please enter a location!</div>
+        </div>
+        <div class="mb-3">
+        <label class="form-label">Tag:</label>
+        <select class="form-select category" aria-label="Default select example" name="listing[category]" required>
+            <option selected>Choose a tag for your listing:</option>
+            <option value="Skiing">Skiing</option>
+            <option value="Boats">Boats</option>
+            <option value="Beach">Beach</option>
+            <option value="Amazing-pools">Amazing-pools</option>
+            <option value="Castles">Castles</option>
+            <option value="Camping">Camping</option>
+            <option value="Arctic">Arctic</option>
+            <option value="Iconic-cities">Iconic-cities</option>
+            <option value="Bed-bread">Bed-bread</option>
+            <option value="Art">Art</option>
+            <option value="Tropical">Tropical</option>
+            <option value="Towers">Towers</option>
+            <option value="Golf">Golf</option>
+          </select>
+        </div>
+        <button class="btn btn-dark mb-3 edit-btn">Edit</button>
+    </form>
+    </div>
+    </div>
+</body>
+<script src="/js/script.js"></script>
